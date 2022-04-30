@@ -7,7 +7,7 @@ import axios from "axios";
 
 const instance = axios.create({
   // baseURL: "https://yallashotalkora.com",
-  baseURL: "http://yallashotalkora.com/api/",
+  baseURL: "https://yallashotalkora.com/api/",
   headers: { "Content-Type": "application/json; charset=UTF-8" },
 });
 

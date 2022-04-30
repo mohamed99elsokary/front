@@ -6,11 +6,16 @@
       data-bs-ride="carousel"
     >
       <div class="carousel-inner">
-        <div class="carousel-item " v-for="(img, index) in images" :class="index == 0 ? 'active': ''" :key="img.id">
+        <div
+          class="carousel-item "
+          v-for="(img, index) in images"
+          :class="index == 0 ? 'active' : ''"
+          :key="img.id"
+        >
           <img
-            :src="`http://yallashotalkora.com/${img.image}`"
+            :src="`https://yallashotalkora.com/${img.image}`"
             class="d-block w-100 main-img"
-            :id='index'
+            :id="index"
             :alt="img.id"
           />
         </div>
@@ -74,18 +79,23 @@ import axios from "axios";
 export default {
   data() {
     return {
-      images: []
+      images: [],
     };
   },
   methods: {},
   created() {},
   computed: {},
   mounted() {
-    axios.get('http://yallashotalkora.com/api/home/images/').then(res => {
-      this.images = res.data;
-      console.log('res images', this.images[0].image);
-      console.log('res images', res.data);
-    }).error(err => {console.log(err);})
-  }
+    axios
+      .get("https://yallashotalkora.com/api/home/images/")
+      .then((res) => {
+        this.images = res.data;
+        console.log("res images", this.images[0].image);
+        console.log("res images", res.data);
+      })
+      .error((err) => {
+        console.log(err);
+      });
+  },
 };
 </script>
